@@ -1,0 +1,22 @@
+BEGIN
+    FUNCTION countWords(str):
+        SET count = 0
+        SET inWord = false
+        
+        FOR each character c in str:
+            IF c is not a space:
+                IF not inWord:
+                    INCREMENT count by 1
+                    SET inWord = true
+            ELSE:
+                SET inWord = false
+        
+        RETURN count
+    
+    // Main program
+    PRINT "Enter a string: "
+    READ input_string
+    
+    SET wordCount = countWords(input_string)
+    PRINT "Number of words: " + wordCount
+END
